@@ -1,6 +1,8 @@
 # ⚡Telemetry-py
 Web application for tracking telemetric data (light, temperature, relative humidity, activity)in a household and displaying them in a dashboard with time-series databases.
 
+Date: July 2022
+
 Tools and technologies: Raspberry Pi,MQTT broker, RShell for pushing python scripts onto RaspberryPi, SQlite, Flask, Jinja.
 
 ## ⚙️ Hardware:
