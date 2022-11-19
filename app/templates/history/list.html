@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% set title = "Historique de %s > %s" % (dash.label, block.title) %}
+{% set title = "History of %s > %s" % (dash.label, block.title) %}
 {% set title_url = url_for( 'dashboard', id=dash['id'] ) %}
 {% set dash_color = block.color %}
 {% block actions %}
@@ -7,11 +7,11 @@
 {% endblock %}
 {% block content %}
 <div class="row">
-    <button onclick="window.location.href='{{ url_for("topic_history", dash_id=dash['id'], block_id=block['id'], _from=rows[-1].id, _len=_len ) }}'; " class="btn waves-effect waves-light right" name="action" value="cancel">Plus ancien
+    <button onclick="window.location.href='{{ url_for("topic_history", dash_id=dash['id'], block_id=block['id'], _from=rows[-1].id, _len=_len ) }}'; " class="btn waves-effect waves-light right" name="action" value="cancel">Least recent
         <i class="material-icons right">fast_forward</i>
     </button> 
 
-    <button onclick="window.location.href='{{ url_for("topic_history", dash_id=dash['id'], block_id=block['id'], _from=(rows[0].id+_len), _len=_len ) }}'; " class="btn waves-effect waves-light right" name="action" value="submit">Plus récent
+    <button onclick="window.location.href='{{ url_for("topic_history", dash_id=dash['id'], block_id=block['id'], _from=(rows[0].id+_len), _len=_len ) }}'; " class="btn waves-effect waves-light right" name="action" value="submit">Most recent
         <i class="material-icons left">fast_rewind</i>
     </button>   
 </div>
@@ -34,11 +34,11 @@
   </div>
 </div>
 <div class="row">
-    <button onclick="window.location.href='{{ url_for("topic_history", dash_id=dash['id'], block_id=block['id'], _from=rows[-1].id, _len=_len ) }}'; " class="btn waves-effect waves-light right" name="action" value="cancel">Plus ancien
+    <button onclick="window.location.href='{{ url_for("topic_history", dash_id=dash['id'], block_id=block['id'], _from=rows[-1].id, _len=_len ) }}'; " class="btn waves-effect waves-light right" name="action" value="cancel">Least recent
         <i class="material-icons right">fast_forward</i>
     </button> 
 
-    <button onclick="window.location.href='{{ url_for("topic_history", dash_id=dash['id'], block_id=block['id'], _from=(rows[0].id+_len), _len=_len ) }}'; " class="btn waves-effect waves-light right" name="action" value="submit">Plus récent
+    <button onclick="window.location.href='{{ url_for("topic_history", dash_id=dash['id'], block_id=block['id'], _from=(rows[0].id+_len), _len=_len ) }}'; " class="btn waves-effect waves-light right" name="action" value="submit">Most recent
         <i class="material-icons left">fast_rewind</i>
     </button>   
 </div>

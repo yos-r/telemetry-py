@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% set title = "Effacer Dashboard" %}
+{% set title = "Deleting Dashboard" %}
 {% set dash_color = application.color %}
 {% block actions %}
 {% endblock %}
@@ -11,15 +11,15 @@
     <div class="col s12">
       <div class="red darken-1">
         <div class="card-content white-text">
-          <span class="card-title"><h4>Effacer {{ row.label }}</h4></span>
-          <p>Voulez-vous vraiment effacer ce Dashboard et tout son contenu?<br/></p>
+          <span class="card-title"><h4>Deleting {{ row.label }}</h4></span>
+          <p>Would you like to remove this dashboard and its contents?<br/></p>
         </div>
         <div class="card-action">
             {# Submit Button #}
-            <button class="btn waves-effect waves-light green ligthen-5 right" type="submit" name="action" value="cancel">Abandonner
+            <button class="btn waves-effect waves-light green ligthen-5 right" type="submit" name="action" value="cancel">Delete
                 <i class="material-icons right">close</i>
             </button>
-            <button class="btn waves-effect waves-light red right" type="submit" name="action" value="submit">Effacer
+            <button class="btn waves-effect waves-light red right" type="submit" name="action" value="submit">Cancel
                 <i class="material-icons right">check</i>
             </button>  
         </div>

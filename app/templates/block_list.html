@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% set title = "Modifier les blocs de %s" % dash.label %}
+{% set title = "Modify blocks of de %s" % dash.label %}
 {% set title_url = url_for( 'dashboard', id=dash['id'] ) %}
 {% set dash_color = dash.color %}
 {% block actions %}
@@ -12,8 +12,8 @@
     <div class="col s12">
       <div class="amber lighten-3">
         <div class="card-content black-text">
-          <span class="card-title"><strong>Truc et astuce</strong></span>
-          <p>Il n'y a pas encore de dashboard disponible.<br />Cliquer sur l'icone '+' en haut à droite pour ajouter un premier block au dashboard.<br/></p>
+          <span class="card-title"><strong>Help</strong></span>
+          <p>No blocks available <br />Click on + to add a block.<br/></p>
         </div>
       </div>
     </div>    

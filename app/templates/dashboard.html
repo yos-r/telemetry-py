@@ -14,8 +14,8 @@
     <div class="col s12">
       <div class="amber lighten-3">
         <div class="card-content black-text">
-          <span class="card-title"><strong>Truc et astuce</strong></span>
-          <p>Il n'y a pas encore de bloc dans le dashboard.<br />Cliquer sur l'icone '+' en haut à droite pour ajouter un premier bloc.<br/></p>
+          <span class="card-title"><strong>HELP</strong></span>
+          <p>No blocks available yet<br />Click on + to add block.<br/></p>
         </div>
       </div>
     </div>    
@@ -23,7 +23,7 @@
     {% for bwd in block_with_data_list %}
 
        <div id="an_id_block" class="center blocs col s12 m4 l3 {{ bwd.block['color'] }}">
-          {#- bwd = Block With Data -#}
+          
           {%- if bwd.block_data['tsname'] -%}
        		<a href="{{ url_for( 'topic_history', dash_id=dashboard.id, block_id=bwd.block['id'], _from=0, _len=bwd.block['hist_size'] ) }}"><span class="new badge black white-text" data-badge-caption=""><i class="material-icons">zoom_in</i></span></a>
           {%- endif -%}

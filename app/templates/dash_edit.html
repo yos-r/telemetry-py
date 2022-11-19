@@ -1,9 +1,9 @@
 {% extends "base.html" %}
 {% import "macro/M_input.macro" as M_input %}
 {% if row['id'] | default("", true) == "" %}
-   {% set title = "Nouveau Dashboard" %}
+   {% set title = "New Dashboard" %}
 {% else %}
-   {% set title = "Modifier Dashboard" %}
+   {% set title = "Update Dashboard" %}
 {% endif %}
 {% set dash_color = application.color %}
 {% block actions %}
@@ -16,19 +16,19 @@
             <div class="row">
                 <div class="input-field col s12">
                     <input id="label" name="label" type="text" class="validate" value="{{ row['label'] | default("",true) }}"><input id="id" name="id" type="hidden" value="{{ row['id'] | default("",true) }}">
-                    <label for="label">Libellé du dashboard</label>
+                    <label for="label">Dashboard name</label>
                 </div>
             </div>
             <div class="row">   
                 <div class="input-field col s12">   
                     {{ M_input.select_color( "color", current=row['color'] ) | safe }}
-                    <label>Couleur du fond</label> 
+                    <label>Background color</label> 
                 </div>
             </div>
             <div class="row">                     
                 <div class="input-field col s12">
                     {{ M_input.select_color( "colortext", current=row['color_text'] ) | safe }}
-                    <label>Couleur du texte</label> 
+                    <label>Text color</label> 
                 </div>
             </div>
             <div class="row">
@@ -40,10 +40,10 @@
 
             {# Submit button #}
             <div class="row">
-                <button class="btn waves-effect waves-light red right" type="submit" name="action" value="cancel">Abandonner
+                <button class="btn waves-effect waves-light red right" type="submit" name="action" value="cancel">Cancel
                     <i class="material-icons right">close</i>
                 </button>
-                <button class="btn waves-effect waves-light green right" type="submit" name="action" value="submit">Sauver
+                <button class="btn waves-effect waves-light green right" type="submit" name="action" value="submit">Save
                     <i class="material-icons right">check</i>
                 </button>        
             </div>

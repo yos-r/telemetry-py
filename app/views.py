@@ -38,13 +38,13 @@ def strftime_filter(value, format='hour', source_type='datetime'):
 		if (min>0) or (hour>0) or (day>0):
 			_lst = []
 			if month>0:
-				_lst.append( "%s mois" % month )
+				_lst.append( "%s month" % month )
 			if day>0:
-				_lst.append( "%s jour%s" % (day, ("s" if day>0 else "")) )
+				_lst.append( "%s day%s" % (day, ("s" if day>0 else "")) )
 			if hour>0:
-				_lst.append( "%s heure%s" % (hour, ("s" if hour>0 else "")) )
+				_lst.append( "%s hours %s" % (hour, ("s" if hour>0 else "")) )
 			if min>0:
-				_lst.append( "%s minute%s" % (min, ("s" if min>0 else "")) )
+				_lst.append( "%s minutes%s" % (min, ("s" if min>0 else "")) )
 
 			return ", ".join( _lst ) 
 		else:
@@ -137,7 +137,7 @@ def dashboard_delete( id ):
 		if request.form['action'] == u'cancel':
 			return redirect( url_for('main') )
 		else:
-			flash( u'Dashboard %s effacé!' %  get_db('db').get_dash( id )['label'] )
+			flash( u'Dashboard %s deleted!' %  get_db('db').get_dash( id )['label'] )
 			get_db('db').drop_dash( id )
 			return redirect( url_for( 'main') )
 
@@ -312,7 +312,7 @@ def block_delete( dash_id, block_id ):
 		if request.form['action'] == u'cancel':
 			return redirect( url_for('block_list', dash_id=dash_id ) )
 		else:
-			flash( u'Bloc %s effacé!' %  get_db('db').get_dash_block( block_id )['title'] )
+			flash( u'Deleted %s ' %  get_db('db').get_dash_block( block_id )['title'] )
 			get_db('db').drop_dash_block( block_id )
 			return redirect( url_for('block_list', dash_id=dash_id ) )
 
@@ -335,7 +335,7 @@ def source_topics( source_name ):
 
 @app.route('/app/config', methods=['GET','POST'] )
 def app_config():
-	abort( Response('La page permettant de configurer l application n est pas encore développée!') )
+	abort( Response('') )
 
 #-------------------------------------------------------
 #  Mqtt Publish Proxy

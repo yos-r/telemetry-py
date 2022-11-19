@@ -6,6 +6,9 @@ Date: July 2022
 
 Tools and technologies: Raspberry Pi,MQTT broker, RShell for pushing python scripts onto RaspberryPi, SQlite, Flask, Jinja.
 
+##  Demo
+![](demo.gif)
+
 ## ⚙️ Hardware:
 - Adafruit Feather HUZZAH with ESP8266 (wi-fi microncontroller for running Micropython)
 - BME280 for measuring pressure, humidity and temperature

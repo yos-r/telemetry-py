@@ -2,9 +2,9 @@
 {% import "macro/M_input.macro" as M_input %}
 {% import "macro/block.macro" as Block %}
 {% if row['id'] | default("", true) == "" %}
-   {% set title = "Nouveau Bloc" %}
+   {% set title = "New Block" %}
 {% else %}
-   {% set title = "Modifier Bloc" %}
+   {% set title = "Update Block" %}
 {% endif %}
 {% set dash_color = dashboard.color %}
 {% block actions %}
@@ -17,29 +17,27 @@
             <div class="row">
                 <div class="input-field col s12">
                     <input id="title" name="title" type="text" class="validate" value="{{ row['title'] | default("",true) }}"><input id="id" name="id" type="hidden" value="{{ row['id'] | default("",true) }}"><input id="dash_id" name="dash_id" type="hidden" value="{{ row['dash_id'] | default("",true) }}"><input id="origin" name="origin" type="hidden" value="{{ origin }}">
-                    <label for="title">Titre bloc</label>
+                    <label for="title">Block title</label>
                 </div>
             </div>
             
             <div class="row">
                 <div class="input-field col s12">
                     <select id="source" name="source">
-                      <option value="" disabled {% if not(row['source']) %}selected{% endif %}>Choisir une source</option>
+                      <option value="" disabled {% if not(row['source']) %}selected{% endif %}>Select a source</option>
                       {% for item in data_sources %}
                             <option value="{{ item }}" {% if row['source'] %}selected{% endif %}>{{ item }}</option>
                       {% endfor %}
                     </select>
-                    <label>Source de données</label>
+                    <label>Source of data</label>
                 </div>
             </div>
 
             <div class="row">
                 <div class="input-field col s12">
                     <select id="topic" name="topic">
-                      <option value="" disabled {% if not(topics) %}selected{% endif %}>Choisir un topic</option>
-                      {# Should be completed on the fly with JavaScript code for new record! #}
+                      <option value="" disabled {% if not(topics) %}selected{% endif %}>Select a topic</option>
                       {%- if topics -%}
-                            {# topics are filled when editing an existing record so draw them #}
                             {%- for item in topics -%}
                                 <option value="{{ item['topic'] }}" {% if item['topic']==row['topic'] %}selected{% endif %}>{{ item['topic'] }}</option>
                             {% endfor -%}
@@ -64,7 +62,7 @@
             <div class="row">                     
                 <div class="input-field col s12">
                     {{ M_input.select_color( "colortext", current=row['color_text'] ) | safe }}
-                    <label>Couleur du texte</label> 
+                    <label>Text Color</label> 
                 </div>
             </div>
             <div class="row">
@@ -74,7 +72,6 @@
                 </div>
             </div>
 
-            {# To do: configure the block parameters (like python dictionnary) within a TextArea #}
             <div class="row">
                 <div class="input-field col s12">
                     <textarea id="block_config" name="block_config" style="height: 15rem;">{{ row['block_config'] | default("",true) }}</textarea>
@@ -82,16 +79,15 @@
                 </div>
             </div>
 
-            {# To do: configure the History-View (if it applies) #}
             <input id="hist_type" name="hist_type" type="hidden" value="{{ row['hist_type'] | default("",true) }}">
             <input id="hist_size" name="hist_size" type="hidden" value="{{ row['hist_size'] | default(50,true) }}">          
 
             {# Submit button #}
             <div class="row">
-                <button class="btn waves-effect waves-light red right" type="submit" name="action" value="cancel">Abandonner
+                <button class="btn waves-effect waves-light red right" type="submit" name="action" value="cancel">Cancel
                     <i class="material-icons right">close</i>
                 </button>
-                <button class="btn waves-effect waves-light green right" type="submit" name="action" onclick="return checkSubmit();" value="submit">Sauver
+                <button class="btn waves-effect waves-light green right" type="submit" name="action" onclick="return checkSubmit();" value="submit">Submit
                     <i class="material-icons right">check</i>
                 </button>        
             </div>
@@ -130,7 +126,7 @@
                      select.append( $("<option></option>").
                                    attr("disabled", "disabled").
                                    attr("selected","selected").
-                                   text("Choisir un topic")
+                                   text("Choose a topic")
                                   );  
                      for( var value in data ){
                          console.debug( "Add value "+data[value]['topic'] );
@@ -143,8 +139,8 @@
                      select.formSelect();
                    }
                    else {
-                     console.error( 'AJAX: contenu vide!' );
-                     M.toast({html: 'AJAX: contenu vide!', classes:'red'});
+                     console.error( 'AJAX: Empty content!' );
+                     M.toast({html: 'AJAX: Empty content!', classes:'red'});
                    }  
                 },
                 complete: function(){
@@ -162,19 +158,19 @@
     function checkSubmit(){
         var bError = false;
         if ( $("#title").val().trim().length == 0 ){
-            M.toast( { html: 'Le bloc doit avoir un titre', classes : 'red' } );
+            M.toast( { html: 'The block has to have a title', classes : 'red' } );
             bError = true;
         }
         if ( !( $("#block_type").val() ) ){
-            M.toast( { html: 'Le bloc doit avoir un type', classes : 'red' } );
+            M.toast( { html: 'The block has to have a type', classes : 'red' } );
             bError = true;
         }
         if ( !( $("#source").val() ) ){
-            M.toast( { html: 'Le bloc doit avoir une source de donnée', classes : 'red' } );
+            M.toast( { html: 'the block has to have a data source', classes : 'red' } );
             bError = true;
         }
         if ( !( $("#topic").val() ) ){
-            M.toast( { html: 'Le bloc doit avoir un topic', classes : 'red' } );
+            M.toast( { html: 'The block has to have a topic', classes : 'red' } );
             bError = true;
         }
         // check JSON
